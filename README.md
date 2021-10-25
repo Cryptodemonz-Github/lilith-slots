@@ -2,7 +2,7 @@
 
 This game has 3 circular, independently operated reels. A series of 6 different symbols (1, 2, 3, 4, 5, 6) is put on each reel. The player places a certain amount of bet and starts the round. During the game, reels are spinning & spinning then they stop at a random symbol. There are a series of rules on which results payout and how much. Different combinations offer different payouts.
 
-## Ruleset
+## The Ruleset
 The real challenge of making this game is figuring out a ruleset that is psychologically attractive for players but profitable in the long term for us. By choosing various winning lines, reels and many symbols, defining a ruleset can be quite complex. I chose 3 reels to be simple in the beginning of the development. So this will be a solid foundation of the game which we can extend by adding more reels & rules.
 In my approach, each reel contains 6 different symbols which means we have totally 6 x 6 x 6 = 216 combinations or ways. Each round has 1 winning line and the player can bet only a certain amount. This example uses 1 $LLTH as the fixed bet amount which we can adjust later by a multiplier that reflects the exchange rate.
 
