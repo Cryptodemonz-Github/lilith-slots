@@ -61,7 +61,7 @@ function fulfillRandomness(bytes32 requestId, uint256 randomness)
 ```
 
 # calculatePrize
-The ruleset is implemented in this function. You can read more about the ruleset in the README.md document. It invesigates the ruleset with the generated random numbers. If there's equality, it sends the prize defined in the ruleset. 
+The ruleset is implemented in this function. You can read more about the ruleset in the README.md document. It investigates the ruleset with the generated random numbers. If there's equality, it sends the prize defined in the ruleset. 
 ``` javascript
 function calculatePrize(bytes32 requestId) internal {
         require(
