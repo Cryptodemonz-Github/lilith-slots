@@ -282,13 +282,13 @@ contract Slots is Ownable, VRFConsumerBase {
     // EXTERNAL FUNCTIONS
     //-------------------------------------------------------------------------
 
-    function placeBetInLLTH() external {
+    function placeBet() external {
         _LLTH.transferFrom(msg.sender, address(this), betAmount);
         bets[msg.sender] = betAmount;
         getRandomNumber(msg.sender);
     }
 
-    function withdrawLLTH(uint256 amount) external onlyOwner {
+    function withdraw(uint256 amount) external onlyOwner {
         require(_LLTH.balanceOf(address(this)) >= amount);
 
         _LLTH.transfer(owner(), amount);
