@@ -90,9 +90,6 @@ contract Slots is Ownable, VRFConsumerBase {
     // mapping of requestId to the returned random number
     mapping(bytes32 => uint256[]) public requestIdToRandomNumbers;
 
-    // mapping to find the currency of players used for betting
-    mapping(address => string) public currency;
-
     // sending random numbers for front-end
     event RandomsAreArrived(bytes32 requestId, uint256[] randomNumbers);
 
@@ -279,27 +276,20 @@ contract Slots is Ownable, VRFConsumerBase {
         } else {
             emit PrizeOfPlayer(requestId, 0);
         }
-
-        delete currency[player];
     }
 
     //-------------------------------------------------------------------------
     // EXTERNAL FUNCTIONS
     //-------------------------------------------------------------------------
 
-    function placeBet() external {
+    function placeBetInLLTH() external {
         _LLTH.transferFrom(msg.sender, address(this), betAmount);
         bets[msg.sender] = betAmount;
-        currency[msg.sender] = "LLTH";
         getRandomNumber(msg.sender);
     }
 
-    function withdraw(uint256 amount) external onlyOwner {
+    function withdrawLLTH(uint256 amount) external onlyOwner {
         require(_LLTH.balanceOf(address(this)) >= amount);
-        require(
-            betAmount <= _LLTH.balanceOf(address(this)),
-            "Not enough LLTH in game's wallet to play."
-        );
 
         _LLTH.transfer(owner(), amount);
     }
